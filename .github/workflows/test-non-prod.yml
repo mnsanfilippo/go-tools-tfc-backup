@@ -21,23 +21,29 @@ jobs:
       TF_TOKEN: '${{ secrets.TF_TOKEN }}'
       BUCKET: '${{ secrets.BUCKET }}'
       GH_TOKEN: '${{ secrets.GH_TOKEN }}'
+
     steps:
       - name: Setup actions/checkout
         uses: actions/checkout@v2
         with:
           path: main
+
       - name: Setup Go
         uses: actions/setup-go@v2
         with:
           go-version: ^1.16.3
+
       - name: Go FMT
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add `go fmt ./...`
+          go fmt ./...
+          git add .
           git commit -m "github action: go fmt"
           git push
+        continue-on-error: true
         working-directory: main
+
       - name: Test Golang Code
         run: |
           GOOS=linux GOARCH=amd64 CGO_ENABLED=0
