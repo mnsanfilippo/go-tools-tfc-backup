@@ -155,6 +155,7 @@ func TestSaveLastState(t *testing.T) {
 }
 
 func TestHandler(t *testing.T) {
+
 	eventFile, _ := ioutil.ReadFile(event_applied)
 	event := events.APIGatewayProxyRequest{}
 	err := json.Unmarshal([]byte(eventFile), &event)

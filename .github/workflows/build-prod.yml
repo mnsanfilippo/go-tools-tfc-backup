@@ -19,22 +19,26 @@ jobs:
       TF_TOKEN: '${{ secrets.TF_TOKEN }}'
       BUCKET: '${{ secrets.BUCKET }}'
       BUCKET_BUILDS: '${{ secrets.BUCKET_BUILDS }}'
+
     steps:
       - name: Setup actions/checkout
         uses: actions/checkout@v2
         with:
           path: main
+
       - name: Checkout Go Tools
         uses: actions/checkout@v2
         with:
           repository: mnsanfilippo/go-tools
           token: ${{ secrets.GH_TOKEN }}
           path: go-tools
+
       - name: Setup Go
         uses: actions/setup-go@v2
         with:
           go-version: ^1.16.3
       - run: go version
+
       - name: Test Golang Code
         run: |
           echo "Generating bytecode ..."
@@ -42,6 +46,7 @@ jobs:
           go mod tidy
           go test -v ./...
         working-directory: main
+
       - name: Build Golang Code
         run: |
           echo "Generating bytecode ..."
@@ -50,6 +55,7 @@ jobs:
           go build -ldflags="-s -w" -a -installsuffix cgo -o main main.go
           zip main.zip main
         working-directory: main
+
       - name: Upload build to S3
         run: |
           go run main.go -b $BUCKET_BUILDS -k $FUNCTION_NAME.zip -f ../../main/main.zip
