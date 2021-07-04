@@ -1,0 +1,21 @@
+{
+  "payload_version":1,
+  "notification_configuration_id":"nc-vxvQ5SpJJ23oAWLk",
+  "run_url":"https://app.terraform.io/app/mnsanfilippo/mnsanfilippo/runs/run-WjF1Zb1n9CFzk5u4",
+  "run_id":"run-WjF1Zb1n9CFzk5u4",
+  "run_message":"nochanges",
+  "run_created_at":"2021-05-30T16:50:11.000Z",
+  "run_created_by":"mnsanfilippo",
+  "workspace_id":"ws-WzbRhM4ojZXjRvoP",
+  "workspace_name":"mnsanfilippo",
+  "organization_name":"mnsanfilippo",
+  "notifications":[
+    {
+      "message":"Run Planned and Finished",
+      "trigger":"run:completed",
+      "run_status":"planned_and_finished",
+      "run_updated_at":"2021-05-30T16:51:09.000Z",
+      "run_updated_by":null
+    }
+  ]
+}
