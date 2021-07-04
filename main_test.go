@@ -118,10 +118,10 @@ func TestDownloadBody(t *testing.T) {
 
 func TestUploadToS3(t *testing.T) {
 	err := UploadToS3("test", "test")
-                            if err != nil {
-                                log.Println(err)
-                    t.Fail()
-                }
+	if err != nil {
+		log.Println(err)
+		t.Fail()
+	}
 	err = deleteFromS3("test")
 	if err != nil {
 		log.Println(err)
