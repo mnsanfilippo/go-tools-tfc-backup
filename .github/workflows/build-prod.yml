@@ -50,7 +50,7 @@ jobs:
           go build -ldflags="-s -w" -a -installsuffix cgo -o main main.go
           zip main.zip main
         working-directory: main
-      - name: Upload aws-cli
+      - name: Upload build to S3
         run: |
-          go run main.go -b $BUCKET_BUILDS -k $FUNCTION_NAME/$GITHUB_RUN_NUMBER/$GITHUB_SHA.zip -f ../../main/main.zip
+          go run main.go -b $BUCKET_BUILDS -k $FUNCTION_NAME.zip -f ../../main/main.zip
         working-directory: go-tools/s3-uploader
