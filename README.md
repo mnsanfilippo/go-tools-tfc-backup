@@ -2,6 +2,7 @@
 
 This tool saves the last Terraform state in S3. These are the resources needed:
 [terraform-cloud-backup](https://github.com/mnsanfilippo/terraform-cloud-backup)
+
 ## Author
 [Mariano Sanfilippo](https://www.linkedin.com/in/mariano-sanfilippo/)
 
