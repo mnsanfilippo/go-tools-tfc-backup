@@ -6,7 +6,7 @@ This tool saves the last Terraform state in S3. These are the resources needed:
 ## Author
 [Mariano Sanfilippo](https://www.linkedin.com/in/mariano-sanfilippo/)
 
-
+## Usage
 You can build this lambda on your own and upload it to S3, or you can fork this repo
 and set up the GitHub Secrets to having the complete workflow.
 
